@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>805 Spine &amp; Sport — Chiropractic &amp; Sports Therapy in Longmont</title>
+    <meta
+      name="description"
+      content="Evidence-based chiropractic and sports therapy in Longmont, Colorado. One-to-one care with Dr. Kaden Riekenberg to restore joint mobility, ease pain, and build lasting strength."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #042d62;
+        --navy-deep: #031f45;
+        --navy-mid: #0a3d7a;
+        --blue: #09448e;
+        --sky: #2f7ec8;
+        --sky-soft: #d7e4f4;
+        --ice: #e8eef5;
+        --mist: #f4f7fb;
+        --paper: #f6f3ec;
+        --white: #ffffff;
+        --ink: #101820;
+        --muted: #5b6470;
+        --line: #c5d4e6;
+        --shadow: 0 18px 50px rgba(3, 31, 69, 0.12);
+        --header: 76px;
+        --max: 1120px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Outfit, "Segoe UI", sans-serif;
+        font-weight: 400;
+        color: var(--ink);
+        background: var(--mist);
+        line-height: 1.55;
+      }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; }
+      button, a { -webkit-tap-highlight-color: transparent; }
+      :focus-visible {
+        outline: 2px solid var(--sky);
+        outline-offset: 3px;
+      }
+      ::selection { background: #b9d4ef; }
+
+      .wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin-inline: auto;
+      }
+      .eyebrow {
+        margin: 0 0 12px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--sky);
+      }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, h3 { font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; }
+
+      .site-header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 30;
+        height: var(--header);
+        display: flex;
+        align-items: center;
+        color: var(--navy);
+        background: rgba(255, 255, 255, 0.94);
+        border-bottom: 1px solid rgba(4, 45, 98, 0.08);
+        backdrop-filter: blur(16px);
+        transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+      .site-header.is-top {
+        background: transparent;
+        color: white;
+        border-bottom-color: transparent;
+        backdrop-filter: none;
+      }
+      .header-inner {
+        width: min(var(--max), calc(100% - 40px));
+        margin-inline: auto;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        margin-right: auto;
+      }
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: var(--navy);
+        color: white;
+        display: grid;
+        place-items: center;
+        flex: none;
+      }
+      .is-top .brand-mark {
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+      }
+      .brand-name { display: flex; flex-direction: column; line-height: 1; }
+      .brand-name strong {
+        font-size: 1.35rem;
+        font-weight: 700;
+        font-style: italic;
+        letter-spacing: -0.04em;
+      }
+      .brand-name span {
+        margin-top: 3px;
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .nav a {
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+      .nav a:hover { color: var(--sky); }
+      .is-top .nav a:hover { color: var(--sky-soft); }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        border: 1.5px solid transparent;
+        text-decoration: none;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn-primary { background: var(--navy); color: white; }
+      .btn-primary:hover { background: var(--navy-mid); }
+      .is-top .btn-primary { background: white; color: var(--navy); }
+      .is-top .btn-primary:hover { background: var(--ice); }
+      .hero .btn-primary { background: white; color: var(--navy); }
+      .hero .btn-primary:hover { background: var(--ice); }
+      .btn-ghost {
+        background: transparent;
+        color: white;
+        border-color: rgba(255, 255, 255, 0.45);
+      }
+      .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
+      .btn-line {
+        background: white;
+        color: var(--navy);
+        border-color: var(--line);
+      }
+      .btn-line:hover { border-color: var(--navy); }
+      .nav-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 10px;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+      }
+      .nav-toggle span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+        box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        color: white;
+        background:
+          radial-gradient(820px 480px at 88% 12%, rgba(47, 126, 200, 0.45), transparent 62%),
+          linear-gradient(168deg, #0a4a8c 0%, var(--navy) 46%, var(--navy-deep) 100%);
+        padding: calc(var(--header) + 54px) 0 150px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .hero-logo {
+        display: block;
+        width: min(100%, 440px);
+        height: auto;
+        margin: 8px 0 36px;
+      }
+      .hero h1 {
+        max-width: 14ch;
+        margin: 0 0 18px;
+        font-size: clamp(2.7rem, 5.4vw, 4.7rem);
+        font-weight: 600;
+      }
+      .lede {
+        max-width: 46ch;
+        margin: 0 0 28px;
+        font-size: 1.12rem;
+        color: var(--sky-soft);
+      }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      .hero-visual { display: grid; gap: 14px; }
+      .hero-visual img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: 62% 18%;
+        border-radius: 22px;
+      }
+      .hero-card {
+        background: rgba(3, 31, 69, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 22px;
+        padding: 18px 18px 6px;
+        backdrop-filter: blur(10px);
+      }
+      .hero-card h2 {
+        margin: 0 0 6px;
+        font-size: 1.15rem;
+        letter-spacing: -0.02em;
+      }
+      .hero-card p { margin: 0 0 14px; color: var(--sky-soft); font-size: 0.95rem; }
+      .hours-mini { list-style: none; margin: 0; padding: 0; }
+      .hours-mini li {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 9px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 0.92rem;
+      }
+      .hours-mini span:last-child { color: var(--sky-soft); }
+      .hero-ridge {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        width: 100%;
+        height: 120px;
+      }
+
+      .statement { padding: 84px 0 20px; }
+      .statement h2 {
+        max-width: 16ch;
+        margin: 0 0 16px;
+        font-size: clamp(2rem, 4vw, 3.3rem);
+        color: var(--navy);
+      }
+      .statement-copy {
+        max-width: 68ch;
+        margin: 0;
+        font-size: 1.08rem;
+        color: var(--muted);
+      }
+
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin: 42px 0 10px;
+        border-top: 1px solid var(--line);
+      }
+      .pillar {
+        padding: 28px 28px 8px 0;
+      }
+      .pillar + .pillar {
+        padding-left: 28px;
+        border-left: 1px solid var(--line);
+      }
+      .pillar-index {
+        display: block;
+        margin-bottom: 18px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        color: var(--sky);
+      }
+      .pillar h3 {
+        margin: 0 0 10px;
+        font-size: 1.45rem;
+        color: var(--navy);
+      }
+      .pillar p { margin: 0 0 12px; color: #3c4652; }
+      .pillar ul { margin: 0; padding-left: 18px; color: #3c4652; }
+      .pillar li + li { margin-top: 4px; }
+
+      .formula {
+        margin: 28px 0 0;
+        padding: 28px 0 0;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .formula p {
+        margin: 0;
+        font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+        color: var(--navy);
+        font-weight: 500;
+      }
+      .formula-note { margin: 0; color: var(--muted); }
+
+      .gallery {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 28px auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .gallery figure { margin: 0; }
+      .gallery img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        border-radius: 18px;
+      }
+      .gallery figcaption {
+        margin-top: 10px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--navy);
+      }
+
+      .band {
+        margin-top: 72px;
+        background: var(--navy);
+        color: white;
+      }
+      .band-inner {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 48px;
+        padding: 72px 0;
+      }
+      .band h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+      }
+      .tech-list { display: grid; gap: 18px; }
+      .tech {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .tech strong { color: #9ec8ef; font-weight: 600; font-size: 0.92rem; }
+      .tech p { margin: 0; color: var(--sky-soft); }
+
+      .conditions { padding: 84px 0; }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 32px;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--navy);
+      }
+      .section-head p { max-width: 36ch; margin: 0; color: var(--muted); }
+      .condition-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .condition-group {
+        background: white;
+        border-radius: 18px;
+        padding: 22px 22px 18px;
+        box-shadow: 0 1px 0 rgba(4, 45, 98, 0.04);
+      }
+      .condition-group h3 {
+        margin: 0 0 14px;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+      .chips span {
+        background: var(--ice);
+        color: var(--navy);
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-size: 0.92rem;
+      }
+
+      .doctor {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 520px;
+        background: var(--paper);
+      }
+      .doctor-photo {
+        position: relative;
+        min-height: 620px;
+        background: var(--navy-deep);
+      }
+      .doctor-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 18%;
+      }
+      .doctor-copy .eyebrow { margin-bottom: 8px; }
+      .doctor-copy h2 {
+        margin: 0;
+        font-size: clamp(2.2rem, 3.4vw, 3.2rem);
+        color: var(--navy);
+      }
+      .credential {
+        margin: 10px 0 18px;
+        color: var(--blue);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+      .doctor-copy {
+        padding: 72px max(20px, calc(100% - (var(--max) / 2))) 72px 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .doctor-copy p { font-size: 1.12rem; color: #2c3642; max-width: 48ch; }
+      .facts { display: grid; gap: 14px; margin-top: 8px; }
+      .facts div {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+      .facts svg { margin-top: 4px; color: var(--sky); }
+      .facts p { margin: 0; font-size: 1rem; }
+      .facts strong { color: var(--navy); }
+
+      .steps { padding: 84px 0; }
+      .step-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-top: 28px;
+      }
+      .step {
+        background: white;
+        border-radius: 18px;
+        padding: 24px;
+        min-height: 210px;
+      }
+      .step em {
+        display: block;
+        margin-bottom: 28px;
+        font-style: normal;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        color: var(--sky);
+      }
+      .step h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.35rem; }
+      .step p { margin: 0; color: var(--muted); }
+
+      .reviews { background: var(--paper); padding: 84px 0; }
+      .review-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 18px;
+      }
+      .review-stack { display: grid; gap: 18px; }
+      blockquote {
+        margin: 0;
+        background: white;
+        border-radius: 18px;
+        padding: 28px;
+      }
+      .review-grid > blockquote { display: flex; flex-direction: column; }
+      blockquote p {
+        margin: 0 0 18px;
+        font-size: 1.08rem;
+        line-height: 1.6;
+        color: #243040;
+      }
+      .review-grid > blockquote p { font-size: 1.22rem; }
+      blockquote footer { margin-top: auto; font-weight: 600; color: var(--navy); }
+
+      .visit { padding: 84px 0 40px; }
+      .visit-panel {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .visit-main { padding: 40px; }
+      .visit-main h2 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        color: var(--navy);
+      }
+      .visit-main > p { max-width: 46ch; color: var(--muted); }
+      .contact-lines { list-style: none; padding: 8px 0 0; margin: 0 0 22px; }
+      .contact-lines li { padding: 6px 0; }
+      .contact-lines a { color: var(--blue); font-weight: 600; text-decoration: none; }
+      .contact-lines a:hover { text-decoration: underline; }
+      .visit-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+      .hours-panel {
+        background: var(--navy);
+        color: white;
+        padding: 40px 36px;
+      }
+      .hours-panel h3 { margin: 0 0 8px; font-size: 1.4rem; }
+      .hours-panel > p { margin: 0 0 18px; color: var(--sky-soft); }
+      .hours { width: 100%; border-collapse: collapse; }
+      .hours th, .hours td {
+        text-align: left;
+        font-weight: 400;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .hours td { text-align: right; color: var(--sky-soft); }
+      .closed td { color: rgba(215, 228, 244, 0.55); }
+
+      .site-footer {
+        padding: 28px 0 36px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .site-footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .nav-toggle { display: grid; place-items: center; }
+        .nav {
+          display: none;
+          position: absolute;
+          top: var(--header);
+          left: 0;
+          right: 0;
+          padding: 12px 20px 20px;
+          background: white;
+          color: var(--navy);
+          flex-direction: column;
+          align-items: stretch;
+          gap: 4px;
+          border-bottom: 1px solid var(--line);
+        }
+        .nav.is-open { display: flex; }
+        .nav a { padding: 12px 4px; }
+        .nav .btn { margin-top: 8px; }
+        .is-top .nav .btn-primary { background: var(--navy); color: white; }
+        .hero { padding-top: calc(var(--header) + 36px); }
+        .hero-grid,
+        .formula,
+        .band-inner,
+        .condition-grid,
+        .step-row,
+        .review-grid,
+        .visit-panel { grid-template-columns: 1fr; }
+        .pillars { grid-template-columns: 1fr; }
+        .pillar, .pillar + .pillar {
+          padding: 24px 0;
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+        .doctor { grid-template-columns: 1fr; }
+        .doctor-photo { min-height: 460px; }
+        .doctor-copy { padding: 36px 20px 56px; }
+        .gallery { grid-template-columns: 1fr; }
+        .gallery img { height: 460px; }
+        .section-head { flex-direction: column; align-items: start; }
+        .hours-panel { padding: 32px 24px 28px; }
+        .visit-main { padding: 28px 22px; }
+      }
+
+      @media (max-width: 640px) {
+        .wrap, .header-inner { width: min(var(--max), calc(100% - 28px)); }
+        .hero h1 { max-width: none; }
+        .hero { padding-bottom: 120px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        * { transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header is-top">
+      <div class="header-inner">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="28" height="18" viewBox="0 0 80 48" fill="none">
+              <path fill="currentColor" d="M2 46 24 16l10 14 8-8L58 2l20 44H2Z" />
+            </svg>
+          </span>
+          <span class="brand-name">
+            <strong>805</strong>
+            <span>SPINE &amp; SPORT</span>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span>
+        </button>
+        <nav class="nav" id="site-nav">
+          <a href="#approach">Approach</a>
+          <a href="#conditions">Conditions</a>
+          <a href="#doctor">Doctor</a>
+          <a href="#visit">Visit</a>
+          <a class="btn btn-primary" href="#visit">Book a visit</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <img
+              class="hero-logo"
+              src="https://images.squarespace-cdn.com/content/v1/6973d6d7dd8be225d93c5968/def2b66a-d7b3-4dc6-a07a-e1a41ec14a0b/805+Primary+Logo+%28800+x+500+px%29+%281200+x+500+px%29+%28600+x+300+px%29.png"
+              alt="805 Spine &amp; Sport"
+            />
+            <p class="eyebrow">Longmont, Colorado</p>
+            <h1>Pain, stiffness, and recurring injuries don’t have to be your normal.</h1>
+            <p class="lede">
+              Evidence-based chiropractic care for Longmont and northern Colorado.
+              Every visit is one-to-one, from the first assessment through follow-up,
+              with a plan built to address the root cause.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#visit">Schedule a visit</a>
+              <a class="btn btn-ghost" href="#approach">See the approach</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/6973d6d7dd8be225d93c5968/ad0953a3-dc69-4054-afef-70033e0cc5bc/IMG_3371+2.jpg?format=1200w"
+              alt="Dr. Kaden Riekenberg beside the 805 Spine and Sport banner"
+            />
+            <aside class="hero-card">
+              <p class="eyebrow">Clinic hours</p>
+              <h2>See Dr. Riekenberg</h2>
+              <p>New patients start with a one-to-one evaluation. Wear clothes you can move in.</p>
+              <ul class="hours-mini">
+                <li><span>Monday</span><span>10:30 a.m. – 5 p.m.</span></li>
+                <li><span>Tuesday</span><span>2 – 6 p.m.</span></li>
+                <li><span>Wednesday</span><span>8:15 a.m. – 12 p.m.</span></li>
+                <li><span>Thursday</span><span>2 – 6 p.m.</span></li>
+                <li><span>Friday</span><span>8:15 a.m. – 2 p.m.</span></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+        <svg class="hero-ridge" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+          <path fill="#e8eef5" d="M0 160V92l140-36 120 48 150-70 110 40 170-78 130 62 160-84 140 50 180-46 140 58V160Z" />
+          <path fill="#f4f7fb" d="M0 160V128l220-24 180 36 200-58 220 44 250-70 370 40V160Z" />
+        </svg>
+      </section>
+
+      <section class="statement wrap" id="approach">
+        <p class="eyebrow">The goal</p>
+        <h2>Restore joint mobility and stability.</h2>
+        <p class="statement-copy">
+          The aim is the highest level of evidence-based chiropractic care for patients
+          in Longmont and the surrounding northern Colorado communities. With one-to-one
+          visits from the initial assessment through follow-ups, care is personalized
+          so relief comes from addressing the root cause — not chasing symptoms.
+        </p>
+
+        <div class="pillars">
+          <article class="pillar">
+            <span class="pillar-index">01 — Adjust</span>
+            <h3>Chiropractic manipulation</h3>
+            <p>
+              Joint manipulation restores normal joint mechanics, reduces stiffness,
+              and dampens pain. Care in this office is comfortable and precise.
+            </p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-index">02 — Release</span>
+            <h3>Soft tissue therapy</h3>
+            <p>Soft tissue work reduces muscle tension, decreases pain, and improves mobility.</p>
+            <ul>
+              <li>Soft tissue massage</li>
+              <li>Cupping</li>
+              <li>Active Release Technique</li>
+            </ul>
+          </article>
+          <article class="pillar">
+            <span class="pillar-index">03 — Rebuild</span>
+            <h3>Rehab that lasts</h3>
+            <p>
+              Adjustments and soft tissue restore motion and decrease pain.
+              Exercise builds the strength to keep that function once you leave the office.
+            </p>
+          </article>
+        </div>
+
+        <div class="formula">
+          <p>The best results come from combining the best tools in rehab and recovery, all in one place.</p>
+          <p class="formula-note">
+            A multi-modal plan treats the whole musculoskeletal system: adjustments for
+            joint function, soft tissue for muscle tension, and exercise for strength
+            that holds up in sport and daily work.
+          </p>
+        </div>
+      </section>
+
+      <section class="gallery" aria-label="Care in the office">
+        <figure>
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/6973d6d7dd8be225d93c5968/9e99dc53-18bd-4ed3-ab6f-05da83812089/IMG_3186.PNG?format=1000w"
+            alt="Dr. Riekenberg assessing a patient’s neck and shoulder"
+          />
+          <figcaption>Neck and shoulder</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/6973d6d7dd8be225d93c5968/8ec658ee-0ffd-42cd-b6f5-b686cb7bcba7/IMG_3895.jpeg?format=1000w"
+            alt="A side-lying adjustment on the treatment table"
+          />
+          <figcaption>On the table</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/6973d6d7dd8be225d93c5968/cc96a4c2-fb6f-474c-9e5e-c133f90d0ab2/IMG_9457_Original.jpg?format=1000w"
+            alt="Hip and pelvic work during a rehab session"
+          />
+          <figcaption>Hip and rehab work</figcaption>
+        </figure>
+      </section>
+
+      <section class="band">
+        <div class="wrap band-inner">
+          <div>
+            <p class="eyebrow">In the office</p>
+            <h2>Precise hands-on care, then a plan you can keep.</h2>
+          </div>
+          <div class="tech-list">
+            <div class="tech">
+              <strong>Joints</strong>
+              <p>Manipulation aimed at mechanics and stiffness, delivered with control rather than force for its own sake.</p>
+            </div>
+            <div class="tech">
+              <strong>Muscle</strong>
+              <p>Massage, cupping, and Active Release Technique to ease tension that keeps pulling a joint out of easy motion.</p>
+            </div>
+            <div class="tech">
+              <strong>Strength</strong>
+              <p>Rehab that gives the change somewhere to live — stability and durability after the visit, not only during it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="conditions" id="conditions">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Who this is for</p>
+              <h2>Conditions we treat</h2>
+            </div>
+            <p>Curious about something that isn’t listed? Reach out and ask whether this office can help.</p>
+          </div>
+          <div class="condition-grid">
+            <article class="condition-group">
+              <h3>Spine &amp; head</h3>
+              <div class="chips">
+                <span>Neck pain</span>
+                <span>Mid-back pain</span>
+                <span>Low-back pain</span>
+                <span>Headaches</span>
+                <span>Migraines</span>
+                <span>Sciatica</span>
+                <span>Radiating pain</span>
+                <span>Rib pain</span>
+                <span>Disc herniations</span>
+                <span>Whiplash syndrome</span>
+              </div>
+            </article>
+            <article class="condition-group">
+              <h3>Sport &amp; movement</h3>
+              <div class="chips">
+                <span>Sports injuries</span>
+                <span>Running injuries</span>
+                <span>CrossFit injuries</span>
+                <span>Athletic injuries</span>
+                <span>Shin splints</span>
+                <span>Sports physicals</span>
+                <span>Gait abnormalities</span>
+                <span>Injury prevention</span>
+              </div>
+            </article>
+            <article class="condition-group">
+              <h3>Joints &amp; soft tissue</h3>
+              <div class="chips">
+                <span>Wrist pain</span>
+                <span>Carpal tunnel syndrome</span>
+                <span>Tennis &amp; golfer’s elbow</span>
+                <span>Thoracic outlet syndrome</span>
+                <span>Frozen shoulder</span>
+                <span>TMJ dysfunction</span>
+                <span>Hip pain</span>
+                <span>Heel pain</span>
+                <span>Plantar fasciitis</span>
+                <span>Muscle pain</span>
+                <span>Arthritis</span>
+              </div>
+            </article>
+            <article class="condition-group">
+              <h3>Everyday performance</h3>
+              <div class="chips">
+                <span>Mobility &amp; flexibility</span>
+                <span>Posture &amp; ergonomics</span>
+                <span>Core stability</span>
+                <span>Families</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctor" id="doctor">
+          <div class="doctor-photo">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/6973d6d7dd8be225d93c5968/e1513c2b-d3b5-4f19-94c5-ca4fd599b907/Kaden+Riekenberg.png?format=1200w"
+              alt="Portrait of Dr. Kaden Riekenberg"
+            />
+          </div>
+          <div class="doctor-copy">
+            <p class="eyebrow">Your doctor</p>
+            <h2>Dr. Kaden Riekenberg</h2>
+            <p class="credential">Doctor of Chiropractic · Longmont</p>
+            <p>
+              Dr. Riekenberg is passionate about helping people live the life they want,
+              without limitations, as quickly as possible. A background in athletics,
+              fitness, and coaching shapes how he works with active, hard-working
+              patients — finding the gap between where they are and the goal they came in with.
+            </p>
+            <div class="facts">
+              <div>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M3 9.5 7 13.5 15 4.5" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+                <p><strong>One-to-one visits.</strong> The initial assessment and follow-ups stay with Dr. Riekenberg.</p>
+              </div>
+              <div>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M3 9.5 7 13.5 15 4.5" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+                <p><strong>Root-cause plans.</strong> Care is aimed at why the pain keeps returning, not only how it feels today.</p>
+              </div>
+              <div>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M3 9.5 7 13.5 15 4.5" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+                <p><strong>Built for people who move.</strong> Athletics, training, and physically demanding work are the point of reference.</p>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <section class="steps">
+        <div class="wrap">
+          <p class="eyebrow">Getting started</p>
+          <h2 style="margin:0;font-size:clamp(2rem,4vw,3rem);color:var(--navy);max-width:16ch">Three steps to your first visit.</h2>
+          <div class="step-row">
+            <article class="step">
+              <em>Step 01</em>
+              <h3>Schedule</h3>
+              <p>Call the office to book a new-patient evaluation with Dr. Riekenberg.</p>
+            </article>
+            <article class="step">
+              <em>Step 02</em>
+              <h3>Paperwork</h3>
+              <p>New-patient forms arrive by email after the appointment is booked. Complete them before you come in.</p>
+            </article>
+            <article class="step">
+              <em>Step 03</em>
+              <h3>Get started</h3>
+              <p>Arrive in comfortable clothes that let you move. The visit starts with understanding the problem, then a plan.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews" id="stories">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Patient stories</p>
+              <h2>What patients are saying</h2>
+            </div>
+          </div>
+          <div class="review-grid">
+            <blockquote>
+              <p>“Kaden did a phenomenal job working on my shoulder and helping me reach my goals. Before seeing him, I had shoulder pain for several years and visited many different professionals with little luck. He determined the root cause and worked from the spine out. I am now working out and playing volleyball with no pain. He gave me the tools to get past the injury and keep it from coming back, then kept working with me on performance. I cannot recommend him enough.”</p>
+              <footer>Nate</footer>
+            </blockquote>
+            <div class="review-stack">
+              <blockquote>
+                <p>“Dr. Riekenberg helped me with back, hip, hamstring, and glute issues so I could run and drive without pain. Over two months, adjustments and strengthening exercises — including ones I can do at home — got me back to 3 miles running pain free, and driving most days without pain.”</p>
+                <footer>Christine</footer>
+              </blockquote>
+              <blockquote>
+                <p>“Kaden provided exceptional care for my knee. He listened, explained the options, and built a plan that fit. My knee pain has improved and I’m back to the activities I love.”</p>
+                <footer>Blaine</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visit" id="visit">
+        <div class="wrap">
+          <div class="visit-panel">
+            <div class="visit-main">
+              <p class="eyebrow">Longmont office</p>
+              <h2>Come in and get a plan.</h2>
+              <p>
+                805 Spine &amp; Sport sees patients by appointment. Call or email the office
+                to schedule a new-patient evaluation.
+              </p>
+              <ul class="contact-lines">
+                <li>600 5th Ave, Suite D<br />Longmont, CO 80501</li>
+                <li><a href="tel:17203402334">(720) 340-2334</a></li>
+                <li><a href="mailto:office@805spineandsport.com">office@805spineandsport.com</a></li>
+              </ul>
+              <div class="visit-actions">
+                <a class="btn btn-primary" href="tel:17203402334">Call the office</a>
+                <a class="btn btn-line" href="mailto:office@805spineandsport.com">Email to schedule</a>
+              </div>
+            </div>
+            <div class="hours-panel">
+              <h3>Hours</h3>
+              <p>Saturday and Sunday are closed.</p>
+              <table class="hours">
+                <tbody>
+                  <tr><th scope="row">Monday</th><td>10:30 a.m. – 5:00 p.m.</td></tr>
+                  <tr><th scope="row">Tuesday</th><td>2:00 – 6:00 p.m.</td></tr>
+                  <tr><th scope="row">Wednesday</th><td>8:15 a.m. – 12:00 p.m.</td></tr>
+                  <tr><th scope="row">Thursday</th><td>2:00 – 6:00 p.m.</td></tr>
+                  <tr><th scope="row">Friday</th><td>8:15 a.m. – 2:00 p.m.</td></tr>
+                  <tr class="closed"><th scope="row">Saturday</th><td>Closed</td></tr>
+                  <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>805 Spine &amp; Sport · Longmont, Colorado</span>
+        <span>Design mockup · not the live site</span>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.querySelector(".site-header");
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.querySelector(".nav");
+
+      const onScroll = () => {
+        header.classList.toggle("is-top", window.scrollY < 24 && !nav.classList.contains("is-open"));
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(open));
+        onScroll();
+      });
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+          onScroll();
+        });
+      });
+    </script>
+  </body>
+</html>
