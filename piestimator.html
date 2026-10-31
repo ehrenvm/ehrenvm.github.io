@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilakantha Pi Approximation Calculator</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #f8fafc;
+            --accent: #38bdf8;
+            --text-color: #cbd5e1;
+            --border-radius: 8px;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .formula-box {
+            background-color: #0f172a;
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input[type="number"] {
+            flex: 1;
+            padding: 12px;
+            background-color: #0f172a;
+            border: 2px solid var(--border-color);
+            color: var(--primary);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--accent);
+        }
+
+        button {
+            background-color: var(--accent);
+            color: #0f172a;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: #111827;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .card-value {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .chart-wrapper {
+            margin-top: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 3px;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 300px;
+            background: #0f172a;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Nilakantha Pi Approximation</h1>
+    
+    <p>The Nilakantha series is an infinite series that rapidly converges onto the true value of &pi;:</p>
+    <div class="formula-box">
+        &pi; = 3 + 4/(2&times;3&times;4) - 4/(4&times;5&times;6) + 4/(6&times;7&times;8) - 4/(8&times;9&times;10) + ...
+    </div>
+
+    <div class="input-group">
+        <input type="number" id="iterations" min="0" max="500" value="15" placeholder="Enter number of terms (e.g., 0 to 500)">
+        <button onclick="calculatePi()">Calculate</button>
+    </div>
+
+    <div class="results">
+        <div class="card">
+            <div class="card-label">Approximated Value</div>
+            <div class="card-value" id="pi-val">3.0000000000000000</div>
+        </div>
+        <div class="card">
+            <div class="card-label">True Value (&pi;)</div>
+            <div class="card-value">3.1415926535897932</div>
+        </div>
+        <div class="card" style="grid-column: span 2;">
+            <div class="card-label">Final Term Evaluated</div>
+            <div class="card-value" id="final-term">None (Input is 0)</div>
+        </div>
+    </div>
+
+    <div class="chart-wrapper">
+        <div class="chart-legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #38bdf8; height: 12px; width: 12px; border-radius: 50%;"></div>
+                <span>Approximation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="border-top: 2px dashed #f43f5e; width: 20px;"></div>
+                <span>True Pi (3.14159...)</span>
+            </div>
+        </div>
+        <canvas id="customChart" width="1400" height="600"></canvas>
+    </div>
+</div>
+
+<script>
+    function calculatePi() {
+        const input = document.getElementById('iterations').value;
+        const n = parseInt(input);
+        
+        if (isNaN(n) || n < 0) {
+            alert("Please enter a valid positive number.");
+            return;
+        }
+
+        let currentPi = 3;
+        let history = new Array();
+        history.push(3);
+
+        for (let i = 1; i <= n; i++) {
+            let x = i * 2;
+            let denominator = x * (x + 1) * (x + 2);
+            let termValue = 4 / denominator;
+            
+            if (i % 2 === 1) {
+                currentPi += termValue;
+            } else {
+                currentPi -= termValue;
+            }
+            history.push(currentPi);
+        }
+
+        document.getElementById('pi-val').innerText = currentPi.toFixed(16);
+        
+        if (n === 0) {
+            document.getElementById('final-term').innerText = "None (Using base value 3)";
+        } else {
+            let finalX = n * 2;
+            let sign = (n % 2 === 1) ? "+" : "-";
+            document.getElementById('final-term').innerText = sign + " 4 / (" + finalX + " × " + (finalX + 1) + " × " + (finalX + 2) + ")";
+        }
+
+        drawChart(history);
+    }
+
+    function drawChart(dataPoints) {
+        const canvas = document.getElementById('customChart');
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
+        
+        ctx.clearRect(0, 0, width, height);
+        
+        const paddingLeft = 100;
+        const paddingRight = 50;
+        const paddingTop = 60;
+        const paddingBottom = 60;
+        const graphWidth = width - paddingLeft - paddingRight;
+        const graphHeight = height - paddingTop - paddingBottom;
+
+        let maxVal = Math.PI;
+        let minVal = Math.PI;
+        for(let i = 0; i < dataPoints.length; i++) {
+            let valToCheck = dataPoints.at(i);
+            if(valToCheck > maxVal) maxVal = valToCheck;
+            if(valToCheck < minVal) minVal = valToCheck;
+        }
+        
+        let range = maxVal - minVal;
+        if (range === 0) range = 0.5;
+        maxVal += range * 0.15;
+        minVal -= range * 0.15;
+
+        function getX(index) {
+            if (dataPoints.length <= 1) return paddingLeft;
+            return paddingLeft + (index / (dataPoints.length - 1)) * graphWidth;
+        }
+        function getY(val) {
+            return paddingTop + graphHeight - ((val - minVal) / (maxVal - minVal)) * graphHeight;
+        }
+
+        // Dark Theme Grid Setup
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 2;
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+
+        const segments = 5;
+        for (let i = 0; i <= segments; i++) {
+            let val = minVal + (i / segments) * (maxVal - minVal);
+            let y = getY(val);
+            
+            ctx.beginPath();
+            ctx.moveTo(paddingLeft, y);
+            ctx.lineTo(width - paddingRight, y);
+            ctx.stroke();
+            
+            ctx.fillText(val.toFixed(5), paddingLeft - 15, y);
+        }
+
+        // True Pi Line (Rose/Red theme highlight)
+        const truePiY = getY(Math.PI);
+        ctx.strokeStyle = '#f43f5e';
+        ctx.lineWidth = 3;
+        
+        let dashPattern = new Array();
+        dashPattern.push(10);
+        dashPattern.push(10);
+        ctx.setLineDash(dashPattern);
+        
+        ctx.beginPath();
+        ctx.moveTo(paddingLeft, truePiY);
+        ctx.lineTo(width - paddingRight, truePiY);
+        ctx.stroke();
+        
+        let clearPattern = new Array();
+        ctx.setLineDash(clearPattern);
+
+        // Approximation Curve (Sky Blue highlight)
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(getX(0), getY(dataPoints.at(0)));
+        
+        for (let i = 1; i < dataPoints.length; i++) {
+            ctx.lineTo(getX(i), getY(dataPoints.at(i)));
+        }
+        ctx.stroke();
+
+        if (dataPoints.length <= 30) {
+            ctx.fillStyle = '#0ea5e9';
+            for (let i = 0; i < dataPoints.length; i++) {
+                ctx.beginPath();
+                ctx.arc(getX(i), getY(dataPoints.at(i)), 6, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+        
+        // Axis Lines
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(paddingLeft, paddingTop);
+        ctx.lineTo(paddingLeft, height - paddingBottom);
+        ctx.lineTo(width - paddingRight, height - paddingBottom);
+        ctx.stroke();
+    }
+
+    window.onload = function() {
+        calculatePi();
+    };
+</script>
+
+</body>
+</html>
